@@ -26,7 +26,6 @@ func main() {
 	}
 	var defaultTasks []string
 	var choiceInput int
-	var taskInput []byte
 	var taskToRemove int
 	if len(defaultTasks) == 0 {
 		fmt.Println("You don't have tasks currently!")
@@ -57,12 +56,14 @@ func main() {
 			fmt.Scan(&choiceInput)
 			if choiceInput == 1 {
 				fmt.Println("nice, Add one more task bellow: ")
-				fmt.Scan(&taskInput)
 				line, err := bufio.NewReader(os.Stdin).ReadString('\n')
 				if err != nil {
 					fmt.Println(err)
 				}
 				newArr := append(defaultTasks, line)
+				fmt.Println("---------------------------------------------------------------------")
+				fmt.Println(line)
+				fmt.Println("---------------------------------------------------------------------")
 				defaultTasks = newArr
 				fmt.Println("Task Added successfully! \n your updated list is:")
 				printListItems(defaultTasks)
