@@ -77,7 +77,7 @@ func main() {
 				printListItems(defaultTasks)
 			} else if choiceInput ==3 {
 				fmt.Println("here is your fucking list")
-				printListItems(defaultTasks)
+				//				printListItems(defaultTasks)
 			}	
 		}
 	}
