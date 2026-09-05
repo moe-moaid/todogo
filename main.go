@@ -61,9 +61,6 @@ func main() {
 					fmt.Println(err)
 				}
 				newArr := append(defaultTasks, line)
-				fmt.Println("---------------------------------------------------------------------")
-				fmt.Println(line)
-				fmt.Println("---------------------------------------------------------------------")
 				defaultTasks = newArr
 				fmt.Println("Task Added successfully! \n your updated list is:")
 				printListItems(defaultTasks)
@@ -77,7 +74,7 @@ func main() {
 				printListItems(defaultTasks)
 			} else if choiceInput ==3 {
 				fmt.Println("here is your fucking list")
-				//				printListItems(defaultTasks)
+				printListItems(defaultTasks)
 			}	
 		}
 	}
