@@ -64,7 +64,6 @@ func main() {
 				defaultTasks = newArr
 				fmt.Println("Task Added successfully! \n your updated list is:")
 				printListItems(defaultTasks)
-				
 			} else if choiceInput == 2 {
 				fmt.Println("Enter the number of the task that you want to remove")
 				fmt.Scan(&taskToRemove)
