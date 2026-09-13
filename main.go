@@ -72,7 +72,7 @@ func main() {
 				defaultTasks = newArr
 				printListItems(defaultTasks)
 			} else if choiceInput ==3 {
-				fmt.Println("here is your fucking list")
+				fmt.Println("here is your fucking list:: ")
 				printListItems(defaultTasks)
 			}	
 		}
