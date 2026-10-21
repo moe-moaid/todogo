@@ -17,8 +17,18 @@ func printListItems(someList[]string) {
 	}
 }
 
+//type Operation struct{
+//	operation "add" || "remove" || "replace"
+//}
+
+func saveListItem() {
+	isFileExist := os.IsExist()
+	fmt.Println("isFileExist", isFileExist)
+}
+
 
 func main() {
+	saveListItem();
 	instructions := [3]choices {
 		choices {num: 1, action: "Add a task"},
 		choices {num: 2, action: "Remove a task"},
