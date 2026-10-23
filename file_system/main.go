@@ -31,13 +31,16 @@ func editListItem(f string) bool{
 	if (err != nil) {
 		fmt.Println("error wile reading file:: ", err)
 	}
-	fmt.Println("does it contain the string? ", strings.Contains(string(data), "fuck"))
+	replacedData := strings.Replace(string(data), "- new task added to the file shitze", "- just a new style", -1)
 	fmt.Printf("data extracted from file:: %s \n", data)
+	fmt.Printf("replaced Data:: %s \n", replacedData)
+	os.WriteFile("text.txt", []byte(replacedData), 0644)
+	fmt.Printf("new file content:: %s", []byte(replacedData))
 	return strings.Contains(string(data), "task")
 }
 
 func main() {
-	file,_ := os.OpenFile("text.txt", O_APPEND|O_CREATE|O_RDWR, 0666)
+	file,_ := os.OpenFile("text.txt", O_APPEND|O_CREATE|O_RDWR, 0644)
 	
 	saveListItem(file)
 	editListItem("text.txt")
