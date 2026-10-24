@@ -24,26 +24,28 @@ func saveListItem(f *os.File) {
 	fmt.Println("added new element to file")
 }
 
-func editListItem(f string) bool{
+func editListItem(f string, oldString, newString string) {
 	data, err := os.ReadFile(f)
-	// r := strings.NewReader("new string")
-	// data, err := io.ReadAll(r)
 	if (err != nil) {
 		fmt.Println("error wile reading file:: ", err)
 	}
-	replacedData := strings.Replace(string(data), "- new task added to the file shitze", "- just a new style", -1)
-	fmt.Printf("data extracted from file:: %s \n", data)
-	fmt.Printf("replaced Data:: %s \n", replacedData)
-	os.WriteFile("text.txt", []byte(replacedData), 0644)
-	fmt.Printf("new file content:: %s", []byte(replacedData))
-	return strings.Contains(string(data), "task")
+	isStringExist := strings.Contains(string(data), oldString)
+	if isStringExist {
+		fmt.Println("isStringExist:: ", isStringExist)
+		fmt.Println("old Data: ", string(data))
+		replacedData := strings.Replace(string(data), oldString, newString, 1)
+		fmt.Println("replaced Data: ", replacedData)
+		os.WriteFile("text.txt", []byte(replacedData), 0644)	
+	} else {
+		fmt.Println("no match was found bruh!")
+	}
 }
 
 func main() {
 	file,_ := os.OpenFile("text.txt", O_APPEND|O_CREATE|O_RDWR, 0644)
 	
 	saveListItem(file)
-	editListItem("text.txt")
+	editListItem("text.txt", "- just a new style", "- new str")
 	
 	defer file.Close()
 }
