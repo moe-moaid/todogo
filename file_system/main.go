@@ -41,6 +41,8 @@ func editListItem(f string, oldString, newString string) {
 	}
 }
 
+func removeItem () {}
+
 func main() {
 	file,_ := os.OpenFile("text.txt", O_APPEND|O_CREATE|O_RDWR, 0644)
 	
